@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kraina Malucha</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Fredoka', sans-serif;
+      background: #FFF5F8;
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    header {
+      background: #FFE2EC;
+      padding: 2rem 1rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: #E55381;
+      animation: pop 1s ease-out;
+    }
+    header p {
+      font-size: 1.2rem;
+      animation: fadeIn 2s ease-in;
+    }
+    header button {
+      margin-top: 1rem;
+      padding: 0.7rem 1.5rem;
+      background: #E55381;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    header button:hover {
+      background: #d4426e;
+    }
+
+    .balloon {
+      position: absolute;
+      width: 50px;
+      height: 70px;
+      background: #ff90b3;
+      border-radius: 50% 50% 45% 45%;
+      animation: float 6s infinite ease-in-out;
+      z-index: 0;
+    }
+    .balloon::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      width: 2px;
+      height: 10px;
+      background: #888;
+    }
+    .balloon1 { left: 10%; animation-delay: 0s; }
+    .balloon2 { left: 50%; animation-delay: 2s; background: #ffd1dc; }
+    .balloon3 { left: 80%; animation-delay: 4s; background: #ffb6c1; }
+
+    @keyframes float {
+      0% { bottom: -100px; }
+      50% { transform: translateX(10px); }
+      100% { bottom: 110%; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes pop {
+      0% { transform: scale(0); }
+      100% { transform: scale(1); }
+    }
+
+    section {
+      padding: 2rem 1rem;
+      text-align: center;
+      animation: fadeIn 1.5s ease-in;
+    }
+    .services, .gallery, .reviews, .contact {
+      background: #FFF;
+      margin: 1rem auto;
+      border-radius: 20px;
+      max-width: 1000px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 2rem 1rem;
+    }
+    .services h2, .gallery h2, .reviews h2, .contact h2 {
+      color: #E55381;
+      margin-bottom: 1rem;
+    }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+    }
+    .service-grid div {
+      background: #FFE2EC;
+      padding: 1rem;
+      border-radius: 15px;
+      font-size: 0.9rem;
+      transition: transform 0.3s;
+    }
+    .service-grid div:hover {
+      transform: scale(1.05);
+    }
+
+    .gallery img {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 15px;
+      margin: 0.5rem 0;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .review {
+      background: #FFE2EC;
+      margin: 1rem 0;
+      padding: 1rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+    input, textarea, button {
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+    button[type="submit"] {
+      background: #E55381;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button[type="submit"]:hover {
+      background: #d4426e;
+    }
+
+    @media (min-width: 768px) {
+      header h1 { font-size: 3rem; }
+      header p { font-size: 1.4rem; }
+      .gallery img { max-width: 300px; margin: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="balloon balloon1"></div>
+    <div class="balloon balloon2"></div>
+    <div class="balloon balloon3"></div>
+    <h1>Kraina Malucha</h1>
+    <p>Zamień urodziny w magiczną przygodę!</p>
+    <button>Zarezerwuj termin</button>
+  </header>
+
+  <section class="services">
+    <h2>Nasze usługi</h2>
+    <div class="service-grid">
+      <div>Animacje urodzinowe</div>
+      <div>Malowanie buzi</div>
+      <div>Kręcenie baloników</div>
+      <div>Wata cukrowa</div>
+      <div>Lody włoskie</div>
+      <div>Popcorn</div>
+      <div>Nachosy</div>
+      <div>Kawa</div>
+      <div>Personalizowana piniata</div>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <h2>Galeria zdjęć</h2>
+    <img src="https://via.placeholder.com/300x200.png?text=Zdjecie+1" alt="Zdjęcie 1">
+    <img src="https://via.placeholder.com/300x200.png?text=Zdjecie+2" alt="Zdjęcie 2">
+    <img src="https://via.placeholder.com/300x200.png?text=Zdjecie+3" alt="Zdjęcie 3">
+  </section>
+
+  <section class="reviews">
+    <h2>Opinie klientów</h2>
+    <div class="review">Wspaniałe animatorki! Dzieci były zachwycone!</div>
+    <div class="review">Piękne malowanie buziek i pyszna wata cukrowa!</div>
+  </section>
+
+  <section class="contact">
+    <h2>Formularz rezerwacji</h2>
+    <form>
+      <input type="text" placeholder="Imię i nazwisko" required>
+      <input type="email" placeholder="Email" required>
+      <input type="tel" placeholder="Telefon" required>
+      <textarea placeholder="Wiadomość / Szczegóły imprezy" rows="5"></textarea>
+      <button type="submit">Zamów uśmiech!</button>
+    </form>
+  </section>
+</body>
+</html>
